@@ -176,7 +176,7 @@ async function run() {
         })
 
         // ------------------- orders related api ------------------- // 
-        
+
         // get orders
         app.get('/orders', async (req, res) => {
             const cursor = requestCollection.find();
@@ -230,8 +230,9 @@ async function run() {
             res.send(result);
         })
 
-        // ------------------- feature related api ------------------- //
+        // ------------------- featured foods related api ------------------- //
 
+        
         // get 6 foods sorted by foodExdate
         app.get('/featuredFoods', async (req, res) => {
             const cursor = foodCollection.find().sort({ foodExdate: 1 }).limit(6);
