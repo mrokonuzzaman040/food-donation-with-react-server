@@ -174,6 +174,21 @@ async function run() {
             const result = await foodCollection.updateOne(filter, updateDoc);
             res.send(result);
         })
+        
+        // Food Status update
+        app.put('/reqStatus/:id', async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) };
+            const updatedFood = req.body;
+            console.log(updatedFood);
+            const updateDoc = {
+                $set: {
+                    reqStatus: updatedFood.reqStatus
+                },
+            };
+            const result = await requestCollection.updateOne(filter, updateDoc);
+            res.send(result);
+        })
 
         // ------------------- orders related api ------------------- // 
 
@@ -232,7 +247,7 @@ async function run() {
 
         // ------------------- featured foods related api ------------------- //
 
-        
+
         // get 6 foods sorted by foodExdate
         app.get('/featuredFoods', async (req, res) => {
             const cursor = foodCollection.find().sort({ foodExdate: 1 }).limit(6);
