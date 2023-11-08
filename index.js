@@ -14,8 +14,8 @@ console.log();
 app.use(cors({
     origin: [
         'http://localhost:5173',
-        'https://food-donation-8087b.web.app/',
-        'https://food-donation-8087b.firebaseapp.com/',
+        'https://food-donation-8087b.web.app',
+        'https://food-donation-8087b.firebaseapp.com',
     ],
     credentials: true
 }));
